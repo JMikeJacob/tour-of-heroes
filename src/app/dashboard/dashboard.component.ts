@@ -18,6 +18,11 @@ export class DashboardComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+      .subscribe(heroes => this.heroes = heroes.results.map((pokemon)=> {
+        return {
+          id: pokemon.url.split('/')[6],
+          name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+        }
+      }).slice(0, 9));
   }
 }

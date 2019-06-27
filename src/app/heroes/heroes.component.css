@@ -1,11 +1,14 @@
 /* HeroesComponent's private CSS styles */
-.heroes {
+/* .heroes {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
     width: 15em;
+    font-family: 'pokemon-font', monospace;
+
+    border-color: black;
   }
-  .heroes li {
+  .heroes span {
     position: relative;
     cursor: pointer;
     background-color: #EEE;
@@ -15,7 +18,7 @@
     border-radius: 4px;
   }
   
-  .heroes li:hover {
+  .heroes span:hover {
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
@@ -57,7 +60,7 @@
     border-radius: 4px;
     cursor: pointer;
     cursor: hand;
-    font-family: Arial;
+    font-family: 'pokemon-font', monospace;
   }
   
   button:hover {
@@ -70,4 +73,31 @@
     top: -32px;
     background-color: gray !important;
     color: white;
+  } */
+
+
+  span.capitalize {
+    text-transform: capitalize;
+  }
+
+  span.badge.pull-left {
+    margin-right: 1em;
+    width: 5em;
+  }
+
+  span.hero-name {
+    margin-left: 1em;
+  }
+
+  div {
+    font-family: 'pokemon-font', monospace;
+  }
+
+  a.list-group-item-entry {
+    background-color:red;
+    color:white;
+  }
+
+  .list-group-item {
+    height:4em;
   }

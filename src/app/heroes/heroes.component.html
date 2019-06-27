@@ -1,21 +1,75 @@
-<h2>My Heroes</h2>
-
-<div>
+<!-- <div>
   <label>Hero name:
     <input #heroName />
   </label>
-  <!-- (click) passes input value to add() and then clears the input -->
   <button (click)="add(heroName.value); heroName.value=''">
     add
   </button>
+</div> -->
+<div class="container">
+  <div class="page-header">
+    <h2>National Pokedex</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-3 heroes">
+      <div class="list-group">
+        <div *ngFor="let hero of heroes; let i = index">
+            <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action" *ngIf="i < heroes.length/4">
+              <span class="badge badge-dark">
+                <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
+                <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+              </span> 
+              <span class="hero-name">{{hero.name}}</span>
+              <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
+              <!-- <span class="badge">{{hero.id}}</span> -->
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 heroes">
+      <div class="list-group">
+        <div *ngFor="let hero of heroes; let i = index">
+            <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action" *ngIf="i >= heroes.length/4 && i < heroes.length/2">
+              <span class="badge badge-dark">
+                <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
+                <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+              </span> 
+              <span class="hero-name">{{hero.name}}</span>
+              <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
+              <!-- <span class="badge">{{hero.id}}</span> -->
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 heroes">
+      <div class="list-group">
+        <div *ngFor="let hero of heroes; let i = index">
+            <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action" *ngIf="i >= heroes.length/2 && i < 3*heroes.length/4">
+              <span class="badge badge-dark">
+                <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
+                <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+              </span> 
+              <span class="hero-name">{{hero.name}}</span>
+              <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
+              <!-- <span class="badge">{{hero.id}}</span> -->
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 heroes">
+        <div class="list-group">
+          <div *ngFor="let hero of heroes; let i = index">
+              <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action" *ngIf="i >= 3*heroes.length/4">
+                <span class="badge badge-dark">
+                  <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
+                  <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+                </span> 
+                <span class="hero-name">{{hero.name}}</span>
+                <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
+                <!-- <span class="badge">{{hero.id}}</span> -->
+              </a>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
-
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
-  </li>
-</ul>

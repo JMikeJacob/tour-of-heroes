@@ -1,0 +1,32 @@
+div {
+    font-family: 'pokemon-font', monospace;
+}
+
+.type {
+    text-transform: uppercase;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.sprite {
+    border: solid black;
+}
+.modal-body {
+    background-image: url('../../assets/pokedex-bg.png');
+}
+
+.flavor-text {
+    background-color: white;
+    padding:1em;
+}
+
+img {
+    background-image: url('../../assets/gray-white.png');
+}
+
+.capitalize {
+    text-transform: capitalize;
+    margin-left: 1em;
+}

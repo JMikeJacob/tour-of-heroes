@@ -26,3 +26,17 @@ h1 {
   nav a.active {
     color: #039be5;
   }
+
+  a {
+      text-transform:capitalize;
+  }
+
+  body {
+      font-family: 'pokemon-font', monospace;
+  }
+
+  div.title {
+      align-content: center;
+      margin: auto;
+      text-align: center;
+  }

@@ -14,18 +14,18 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private heroesUrl = 'https://pokeapi.co/api/v2/pokemon';  // URL to web api
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
   /** GET heroes from the server */
-  getHeroes (): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
+  getHeroes (): Observable<any> {
+    return this.http.get(this.heroesUrl + '/?offset=0&limit=807')
       .pipe(
         tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<Hero[]>('getHeroes', []))
+        catchError(this.handleError<any>('getHeroes', []))
       );
   }
 
@@ -44,23 +44,32 @@ export class HeroService {
   }
 
   /** GET hero by id. Will 404 if id not found */
-  getHero(id: number): Observable<Hero> {
+  getHero(id: number): Observable<any> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.get<Hero>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    return this.http.get(url).pipe(
+      tap(_ => this.log(`fetched pokemon id=${id}`)),
+      catchError(this.handleError<any>(`getHero id=${id}`))
+    );
+  }
+
+  /** GET flavor text by id */
+  getFlavorText(id: number): Observable<any> {
+    const url = `${this.heroesUrl}-species/${id}`;
+    return this.http.get(url).pipe(
+      tap(_ => this.log(`fetched pokemon text id=${id}`)),
+      catchError(this.handleError<any>(`getHero id=${id}`))
     );
   }
 
   /* GET heroes whose name contains search term */
-  searchHeroes(term: string): Observable<Hero[]> {
+  searchHeroes(term: string): Observable<any[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+    return this.http.get<any[]>(`${this.heroesUrl}/?offset=0&limit=807&name=${term}`).pipe(
       tap(_ => this.log(`found heroes matching "${term}"`)),
-      catchError(this.handleError<Hero[]>('searchHeroes', []))
+      catchError(this.handleError<any[]>('searchHeroes', []))
     );
   }
 

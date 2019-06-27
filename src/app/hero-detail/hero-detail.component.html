@@ -1,11 +1,56 @@
-<div *ngIf="hero">
-        <h2>{{hero.name | uppercase}} Details</h2>
-        <div><span>id: </span>{{hero.id}}</div>
-        <div>
-          <label>name:
-            <input [(ngModel)]="hero.name" placeholder="name"/>
-          </label>
-        </div>
-        <button (click)="goBack()">go back</button>
-        <button (click)="save()">save</button>
+
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="modal-title">
+              <span class="badge badge-dark">
+                  <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
+                  <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+                </span> <span class="capitalize">{{hero.name}}</span></h4>
+          <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">&times;</button>
+          
       </div>
+      <div class="modal-body">
+        <div class="details">
+          <div class="row">
+            <div class="col-md-6">
+                <img class="img-responsive img-thumbnail sprite" style="width:200px;height:200px;" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{hero.id}}.png"/>
+              </div>
+            <div class="col-md-6">
+                <div class="container">
+                    <h5 class="badge badge-primary">{{hero.types[0].type.name}}</h5> <br/>
+                    <h5 class="badge badge-secondary" *ngIf="hero.types[1]">{{hero.types[1].type.name}}</h5>
+                </div>
+            </div>
+          </div>
+              
+        
+              <ul class="hw">
+                <li class="height"><span>HT: </span>{{hero.height_text}} </li>
+                <li class="weight"><span>WT: </span>{{hero.weight}} lbs.</li>
+              </ul>
+        
+              <p class="habitat">
+                <span class="habitat-label">Habitat: </span><span class="capitalize">{{hero.habitat}}</span>
+              </p>
+            <div class="row">
+              <div class="col">
+                  <p class="flavor-text border border-dark rounded">
+                      {{hero.text}}
+                  </p>
+              </div>
+            </div>
+              
+        
+        </div>
+      </div>
+    </div>
+ 
+  <!-- </div>
+  <div *ngIf="hero">
+    <div class="header">
+      
+      <h2><span class="id">#{{hero.id}}</span> {{hero.name | uppercase}}</h2>
+      <h3 class="genus capitalize">{{hero.genus}}</h3>
+    </div>
+    
+</div> -->
