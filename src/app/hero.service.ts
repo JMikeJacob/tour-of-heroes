@@ -22,7 +22,7 @@ export class HeroService {
 
   /** GET heroes from the server */
   getHeroes (): Observable<any> {
-    return this.http.get(this.heroesUrl + '/?offset=0&limit=807')
+    return this.http.get(this.heroesUrl + '-species/?offset=0&limit=807')
       .pipe(
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<any>('getHeroes', []))

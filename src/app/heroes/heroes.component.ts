@@ -66,6 +66,13 @@ export class HeroesComponent implements OnInit {
     this.heroService.getFlavorText(heroId)
       .subscribe((pokemon) => {
         console.log(pokemon)
+        if(!pokemon.generation) {
+          this.hero.generation = "Unknown"
+        }
+        else {
+          console.log(pokemon.generation)
+          this.hero.generation = "Gen " + pokemon.generation.name.split('-')[1]
+        }
         if(!pokemon.habitat) {
           this.hero.habitat = "Unknown"
         }
@@ -91,7 +98,10 @@ export class HeroesComponent implements OnInit {
           const modalRef = this.modalService.open(HeroDetailComponent)
           modalRef.componentInstance.hero = this.hero
           this.open_modal = true
-          modalRef.result.then(() => { console.log('When user closes'); }, () => {
+          modalRef.result.then(() => {
+            this.has_clicked = false
+            this.open_modal=false
+          }, () => {
             this.has_clicked = false
             this.open_modal=false
           })

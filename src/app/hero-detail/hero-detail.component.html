@@ -1,56 +1,49 @@
-
-    <div class="modal-content">
-      <div class="modal-header">
-          <h4 class="modal-title">
-              <span class="badge badge-dark">
-                  <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
-                  <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
-                </span> <span class="capitalize">{{hero.name}}</span></h4>
-          <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">&times;</button>
+<div class="modal-content">
+  <div class="modal-header">
+      <h4 class="modal-title">
+          <span class="badge badge-dark">
+              <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
+              <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+            </span> <span style="padding:1em;">{{hero.name | uppercase}}</span></h4>
+      <!-- <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">&times;</button> -->
+      
+  </div>
+  <div class="modal-body">
+    <div class="details">
+      <div class="row no-gutters">
+        <div class="col-sm-5">
+            <img class="img-responsive img-thumbnail sprite" style="width:180px;height:180px;" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{hero.id}}.png"/>
+        </div>
+        <div class="col-sm-7 info">
+            <div class="container-fluid">
+                <span class="genus">
+                    {{hero.genus}}
+                </span><br/>
+                <h5><span class="badge badge-primary" style="margin-right:0.5em;">{{hero.types[0].type.name | uppercase}}</span>
+                <span class="badge badge-secondary" *ngIf="hero.types[1]">{{hero.types[1].type.name | uppercase}}</span></h5>
+                <ul class="hw">
+                  <li class="height">HT: {{hero.height_text}} </li>
+                  <li class="weight">WT: {{hero.weight}} lbs.</li>
+                </ul>
           
-      </div>
-      <div class="modal-body">
-        <div class="details">
-          <div class="row">
-            <div class="col-md-6">
-                <img class="img-responsive img-thumbnail sprite" style="width:200px;height:200px;" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{hero.id}}.png"/>
-              </div>
-            <div class="col-md-6">
-                <div class="container">
-                    <h5 class="badge badge-primary">{{hero.types[0].type.name}}</h5> <br/>
-                    <h5 class="badge badge-secondary" *ngIf="hero.types[1]">{{hero.types[1].type.name}}</h5>
+                <div class="habitat" style="margin-top:-1em;">
+                  Habitat: {{hero.habitat | uppercase}}<br/>
+                  Generation: {{hero.generation | uppercase}}
                 </div>
             </div>
-          </div>
-              
-        
-              <ul class="hw">
-                <li class="height"><span>HT: </span>{{hero.height_text}} </li>
-                <li class="weight"><span>WT: </span>{{hero.weight}} lbs.</li>
-              </ul>
-        
-              <p class="habitat">
-                <span class="habitat-label">Habitat: </span><span class="capitalize">{{hero.habitat}}</span>
-              </p>
-            <div class="row">
-              <div class="col">
-                  <p class="flavor-text border border-dark rounded">
-                      {{hero.text}}
-                  </p>
-              </div>
-            </div>
-              
-        
         </div>
       </div>
+      <div class="row">
+        <div class="col">
+            <p class="flavor-text border border-dark rounded">
+                {{hero.text}}
+            </p>
+        </div>
+      </div>
+          
     </div>
- 
-  <!-- </div>
-  <div *ngIf="hero">
-    <div class="header">
-      
-      <h2><span class="id">#{{hero.id}}</span> {{hero.name | uppercase}}</h2>
-      <h3 class="genus capitalize">{{hero.genus}}</h3>
-    </div>
-    
-</div> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  </div>
+</div>

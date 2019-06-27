@@ -93,11 +93,11 @@
     font-family: 'pokemon-font', monospace;
   }
 
-  a.list-group-item-entry {
-    background-color:red;
-    color:white;
+  .card-header {
+    background-color: #ee1515;
+    color: white;
   }
 
-  .list-group-item {
-    height:4em;
+  .card-body {
+    background-color: #f0f0f0;
   }

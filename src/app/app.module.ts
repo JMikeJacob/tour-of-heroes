@@ -2,7 +2,7 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -22,7 +22,7 @@ import { MessagesComponent }    from './messages/messages.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModalModule
+    NgbModule
 
     // // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // // and returns simulated server responses.
