@@ -57,3 +57,7 @@ img {
   .genus {
       padding-top:0.5em;
   }
+
+  .color-green {
+      background-color: green;
+  }

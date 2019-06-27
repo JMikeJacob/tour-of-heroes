@@ -1,3 +1,26 @@
 * {
   font-family: 'pokemon-font', monospace;
 }
+
+.card-header {
+  background-color: #ee1515;
+  color: #f0f0f0;
+}
+
+.center {
+    text-align:center;
+}
+
+.container-fluid {
+    margin: 1em 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+      margin-top:1em;
+    }
+
+    .btn {
+        margin-bottom:1em;
+    }
+}

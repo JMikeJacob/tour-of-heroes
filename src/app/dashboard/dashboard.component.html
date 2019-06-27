@@ -8,51 +8,55 @@
   </a>
 </div> -->
 
-<div class="container-fluid" style="margin-top:1em">
+<div class="container-fluid">
   <div class="page-header">
-    <h2>Dashboard</h2>
+    <h2>Welcome to API Pokédex!</h2>
     <hr/>
   </div>
   <div class="row">
-    <div class="col-sm-8">
-      <h3>Starter Pokemon</h3>
-      <div class="row">
-        <div class="col-sm-4">
-            <div class="card">
-              <img class="card-img-top" style="background-color: #f0f0f0;" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-              <div class="card-body">
-                <h4 class="card-title">Bulbasaur</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-              <div class="card">
-                <img class="card-img-top" style="background-color: #f0f0f0" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-                <div class="card-body">
-                  <h4 class="card-title">Bulbasaur</h4>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                  <img class="card-img-top" style="background-color: #f0f0f0" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-                  <div class="card-body">
-                    <h4 class="card-title">Bulbasaur</h4>
-                  </div>
-                </div>
-              </div>
-        </div>
-    </div>
-     
     <div class="col-sm-4">
+      <h3>Dashboard</h3>
       <div class="card">
         <div class="card-header">
           <h4>Total Pokemon Count</h4>
         </div>
         <div class="card-body">
-          {{count}} Pokemon Registereed
+          {{count}} Pokemon Registered!
         </div>
       </div>
+      <button class="btn btn-block btn-dark" style="margin-top:0.5em;height:3.5em; font-size:2em" routerLink="/pokemon">GO TO POKEMON LIST</button>
+    </div>
+    <div class="col-sm-8 next">
+      <h3>Choose Your Pokemon!</h3>
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="card shadow bg-white rounded">
+              <img class="card-img-top" style="background-image:url(../../assets/gray-white.png);" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+              <div class="card-body center">
+                <h4 class="card-title">Bulbasaur</h4>
+                <a class="stretched-link" (click)="open(1)"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="card shadow bg-white rounded">
+                <img class="card-img-top" style="background-image:url(../../assets/gray-white.png);" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png">
+                <div class="card-body center">
+                  <h4 class="card-title">Charmander</h4>
+                  <a class="stretched-link" (click)="open(4)"></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card shadow bg-white rounded">
+                  <img class="card-img-top" style="background-image:url(../../assets/gray-white.png);" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png">
+                  <div class="card-body center">
+                    <h4 class="card-title">Squirtle</h4>
+                    <a class="stretched-link" (click)="open(7)"></a>
+                  </div>
+                </div>
+              </div>
+        </div>
     </div>
   </div>
 </div>

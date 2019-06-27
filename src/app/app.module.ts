@@ -39,6 +39,7 @@ import { MessagesComponent }    from './messages/messages.component';
     MessagesComponent,
     HeroSearchComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  entryComponents: [ HeroDetailComponent ]
 })
 export class AppModule { }

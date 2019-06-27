@@ -19,7 +19,17 @@
                 <span class="genus">
                     {{hero.genus}}
                 </span><br/>
-                <h5><span class="badge badge-primary" style="margin-right:0.5em;">{{hero.types[0].type.name | uppercase}}</span>
+                <h5><span class="badge badge-primary" style="margin-right:0.5em;"  [ngClass]="{
+                  'poison':hero.types[0].type.name==='poison', 
+                  'fire': hero.types[0].type.name==='fire', 
+                  'water':hero.types[0].type.name==='water',
+                  'fire': hero.types[0].type.name==='fire', 
+                  'fire': hero.types[0].type.name==='fire', 
+                  'fire': hero.types[0].type.name==='fire', 
+                  'fire': hero.types[0].type.name==='fire' 
+                }">
+                        {{hero.types[0].type.name | uppercase}}
+                    </span>
                 <span class="badge badge-secondary" *ngIf="hero.types[1]">{{hero.types[1].type.name | uppercase}}</span></h5>
                 <ul class="hw">
                   <li class="height">HT: {{hero.height_text}} </li>
