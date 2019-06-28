@@ -20,17 +20,49 @@
                     {{hero.genus}}
                 </span><br/>
                 <h5><span class="badge badge-primary" style="margin-right:0.5em;"  [ngClass]="{
-                  'poison':hero.types[0].type.name==='poison', 
-                  'fire': hero.types[0].type.name==='fire', 
-                  'water':hero.types[0].type.name==='water',
-                  'fire': hero.types[0].type.name==='fire', 
-                  'fire': hero.types[0].type.name==='fire', 
-                  'fire': hero.types[0].type.name==='fire', 
-                  'fire': hero.types[0].type.name==='fire' 
+                  'normal':hero.types[0].type.name==='normal', 
+                  'fighting': hero.types[0].type.name==='fighting', 
+                  'flying':hero.types[0].type.name==='flying',
+                  'poison': hero.types[0].type.name==='poison', 
+                  'ground': hero.types[0].type.name==='ground', 
+                  'rock': hero.types[0].type.name==='rock', 
+                  'bug': hero.types[0].type.name==='bug',
+                  'ghost': hero.types[0].type.name==='ghost',
+                  'steel': hero.types[0].type.name==='steel',  
+                  'fire':hero.types[0].type.name==='fire', 
+                  'water': hero.types[0].type.name==='water', 
+                  'grass':hero.types[0].type.name==='grass',
+                  'electric': hero.types[0].type.name==='electric', 
+                  'fairy': hero.types[0].type.name==='fairy', 
+                  'psychic': hero.types[0].type.name==='psychic', 
+                  'ice': hero.types[0].type.name==='ice',
+                  'dragon': hero.types[0].type.name==='dragon',
+                  'dark': hero.types[0].type.name==='dark'
                 }">
                         {{hero.types[0].type.name | uppercase}}
                     </span>
-                <span class="badge badge-secondary" *ngIf="hero.types[1]">{{hero.types[1].type.name | uppercase}}</span></h5>
+                <span class="badge badge-secondary" *ngIf="hero.types[1]" [ngClass]="{
+                  'normal':hero.types[1].type.name==='normal', 
+                  'fighting': hero.types[1].type.name==='fighting', 
+                  'flying':hero.types[1].type.name==='flying',
+                  'poison': hero.types[1].type.name==='poison', 
+                  'ground': hero.types[1].type.name==='ground', 
+                  'rock': hero.types[1].type.name==='rock', 
+                  'bug': hero.types[1].type.name==='bug',
+                  'ghost': hero.types[1].type.name==='ghost',
+                  'steel': hero.types[1].type.name==='steel',  
+                  'fire':hero.types[1].type.name==='fire', 
+                  'water': hero.types[1].type.name==='water', 
+                  'grass':hero.types[1].type.name==='grass',
+                  'electric': hero.types[1].type.name==='electric', 
+                  'fairy': hero.types[1].type.name==='fairy', 
+                  'psychic': hero.types[1].type.name==='psychic', 
+                  'ice': hero.types[1].type.name==='ice',
+                  'dragon': hero.types[1].type.name==='dragon',
+                  'dark': hero.types[1].type.name==='dark'
+                }">
+                  {{hero.types[1].type.name | uppercase}}
+                </span></h5>
                 <ul class="hw">
                   <li class="height">HT: {{hero.height_text}} </li>
                   <li class="weight">WT: {{hero.weight}} lbs.</li>
