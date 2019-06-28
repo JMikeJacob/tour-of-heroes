@@ -15,11 +15,10 @@
     <div class="row">
       <div class="col-md-4 heroes">
         <div class="list-group">
-          <ng-container *ngFor="let hero of heroes; let i = index">
-              <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action" *ngIf="i < heroes.length/3">
+          <ng-container *ngFor="let hero of heroes.slice(0, heroes.length/3)">
+              <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action">
                 <span class="badge badge-dark">
-                  <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
-                  <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+                  {{hero.id | zeroPad}}
                 </span> 
                 <span class="hero-name">{{hero.name | uppercase}}</span>
                 <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
@@ -28,13 +27,12 @@
           </ng-container>
         </div>
       </div>
-      <div class="col-md-4 heroes">
+      <div class="col-md-4 heroes card-test">
         <div class="list-group">
-          <ng-container *ngFor="let hero of heroes; let i = index">
-              <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action" *ngIf="i >= heroes.length/3 && i < 2*heroes.length/3">
+          <ng-container *ngFor="let hero of heroes.slice(heroes.length/3, 2*heroes.length/3)">
+              <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action">
                 <span class="badge badge-dark">
-                  <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
-                  <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+                  {{hero.id | zeroPad}}
                 </span> 
                 <span class="hero-name">{{hero.name | uppercase}}</span>
                 <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
@@ -43,13 +41,12 @@
           </ng-container>
         </div>
       </div>
-      <div class="col-md-4 heroes">
+      <div class="col-md-4 heroes card-test">
         <div class="list-group">
-          <ng-container *ngFor="let hero of heroes; let i = index">
-              <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action" *ngIf="i >= 2*heroes.length/3">
+          <ng-container *ngFor="let hero of heroes.slice(2*heroes.length/3, heroes.length-1)">
+              <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action">
                 <span class="badge badge-dark">
-                  <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
-                  <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+                  {{hero.id | zeroPad}}
                 </span> 
                 <span class="hero-name">{{hero.name | uppercase}}</span>
                 <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->

@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
         this.heroes = heroes.results.map((pokemon)=> {
           return {
             id: pokemon.url.split('/')[6],
-            name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+            name: pokemon.name
           }
       }).slice(0, 9)
     })
@@ -104,7 +104,7 @@ export class DashboardComponent implements OnInit {
         }
       })
   }
-  
+
   open(id:number): void {
     if(!this.has_clicked) {
       this.getHero(id)

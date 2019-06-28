@@ -2,8 +2,7 @@
   <div class="modal-header">
       <h4 class="modal-title">
           <span class="badge badge-dark">
-              <span class="zero-pad-hundreds" *ngIf="hero.id < 100">0</span>
-              <span class="zero-pad-tens" *ngIf="hero.id < 10">0</span>{{hero.id}}
+              {{hero.id | zeroPad}}
             </span> <span style="padding:1em;">{{hero.name | uppercase}}</span></h4>
       <!-- <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">&times;</button> -->
       
@@ -17,7 +16,7 @@
         <div class="col-sm-7 info">
             <div class="container-fluid">
                 <span class="genus">
-                    {{hero.genus}}
+                    {{hero.genus | titlecase}}
                 </span><br/>
                 <h5><span class="badge badge-primary" style="margin-right:0.5em;"  [ngClass]="{
                   'normal':hero.types[0].type.name==='normal', 

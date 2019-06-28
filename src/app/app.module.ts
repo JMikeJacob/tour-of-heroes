@@ -16,6 +16,7 @@ import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ZeroPadPipe } from './zero-pad.pipe';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    ZeroPadPipe
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ HeroDetailComponent ]
