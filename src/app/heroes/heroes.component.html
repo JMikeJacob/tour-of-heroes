@@ -13,21 +13,21 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-md-4 heroes">
+      <div class="col heroes">
+        <button id="previous" (click)="prev()">prev</button>
+        <button id="next" (click)="next()">next</button>
         <div class="list-group">
-          <ng-container *ngFor="let hero of heroes.slice(0, heroes.length/3)">
+          <ng-container *ngFor="let hero of heroes.slice(hero_start, hero_end)">
               <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action">
                 <span class="badge badge-dark">
                   {{hero.id | zeroPad}}
                 </span> 
                 <span class="hero-name">{{hero.name | uppercase}}</span>
-                <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
-                <!-- <span class="badge">{{hero.id}}</span> -->
               </a>
           </ng-container>
         </div>
       </div>
-      <div class="col-md-4 heroes card-test">
+      <!-- <div class="col-md-4 heroes card-test">
         <div class="list-group">
           <ng-container *ngFor="let hero of heroes.slice(heroes.length/3, 2*heroes.length/3)">
               <a href="javascript:;" (click)="open(hero.id)" class="list-group-item list-group-item-action">
@@ -35,8 +35,6 @@
                   {{hero.id | zeroPad}}
                 </span> 
                 <span class="hero-name">{{hero.name | uppercase}}</span>
-                <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
-                <!-- <span class="badge">{{hero.id}}</span> -->
               </a>
           </ng-container>
         </div>
@@ -49,12 +47,10 @@
                   {{hero.id | zeroPad}}
                 </span> 
                 <span class="hero-name">{{hero.name | uppercase}}</span>
-                <!-- <button class="btn btn-outline-primary btn-block"><span class="badge badge-light pull-left">{{hero.id}}</span>{{hero.name}}</button> -->
-                <!-- <span class="badge">{{hero.id}}</span> -->
               </a>
           </ng-container>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="col-md-3 heroes">
           <div class="list-group">
             <div *ngFor="let hero of heroes; let i = index">

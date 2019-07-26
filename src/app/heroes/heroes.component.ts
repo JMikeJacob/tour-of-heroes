@@ -15,13 +15,42 @@ export class HeroesComponent implements OnInit {
   hero: any;
   open_modal: boolean;
   has_clicked: boolean;
+  page: number;
+  hero_start: number;
+  hero_end: number;
 
   constructor(private heroService: HeroService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.getHeroes();
+    this.getHeroes()
     this.open_modal = false
     this.has_clicked = false
+    this.page = 1
+    this.hero_start = 0
+    this.hero_end = 10
+  }
+
+  next(): void {
+    if(this.hero_start + 10 <= this.heroes.length) {
+      this.hero_start += 10
+      if(this.hero_end + 10 <= this.heroes.length)  {
+        this.hero_end += 10
+      }
+      else {
+        this.hero_end = this.heroes.length
+      }
+    }
+  }
+
+  prev(): void {
+    if(this.hero_start - 10 >= 0) {
+      this.hero_start -= 10
+      this.hero_end -= 10
+    }
+    else {
+      this.hero_start = 0
+      this.hero_end = 10
+    }
   }
 
   open(id:number): void {
@@ -98,7 +127,9 @@ export class HeroesComponent implements OnInit {
           const modalRef = this.modalService.open(HeroDetailComponent)
           modalRef.componentInstance.hero = this.hero
           this.open_modal = true
-          modalRef.result.then(() => {
+          console.log(modalRef.result)
+          modalRef.result.then((res) => {
+            console.log(res)
             this.has_clicked = false
             this.open_modal=false
           }, () => {
